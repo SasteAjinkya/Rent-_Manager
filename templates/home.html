@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #6719f8, #8706ff, #1b32ff, #6201ff, #d60aff, #9d00f8, #ff0274);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, #ff5733, #33b5e5, #4caf50, #ffc107, #9c27b0) 1;
+            animation: lightning 1.5s infinite alternate;
+            flex-wrap: wrap;
+        }
+
+        /* Navbar Logo */
+        .navbar h1 {
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        /* Navbar Buttons */
+        .navbar-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-buttons button {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .navbar-buttons button:hover {
+            background-color: #ff05ea;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #ff3590, 0 0 25px #ff519f, 0 0 35px #fc328d;
+            border:4px solid rgb(255, 251, 29)
+        }
+
+        .navbar-buttons button a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Container for buttons */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .container button {
+            background: linear-gradient(145deg, #ff6a00, #ff3366);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 20px;
+            font-size:30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+        }
+
+        .container button a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+
+        .container button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Button Colors */
+        .container button:nth-child(1) {
+            background: linear-gradient(145deg, #cf013f, #ff0055);
+            transform: scale(1.78);
+        }
+
+        .container button:nth-child(2) {
+            background: linear-gradient(145deg, #02bcff, #076091);
+            transform: scale(1.15);
+        }
+
+        .container button:nth-child(3) {
+            background: linear-gradient(145deg, #03ff0c, #059943);
+            transform: scale(1.15);
+        }
+
+        .container button:nth-child(4) {
+            background: linear-gradient(145deg, #ebb105, #f7f30a);
+            transform: scale(1.15);
+        }
+
+        .container button:nth-child(5) {
+            background: linear-gradient(145deg, #9c27b0, #6a1b9a);
+            transform: scale(1.15);
+        }
+
+        /* Responsive Design for Small Screens */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .navbar-buttons {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar-buttons button {
+                width: 100%;
+                font-size: 14px;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .container button {
+                font-size: 16px;
+                padding: 15px;
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar h1 {
+                font-size: 20px;
+            }
+
+            .navbar-buttons button {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+
+            .container button {
+                font-size: 14px;
+                padding: 12px;
+                max-width: 95%;
+            }
+        }
+
+        /* Lightning Effect Animation */
+        @keyframes lightning {
+            0% {
+                border-color: transparent;
+            }
+            25% {
+                border-color: #ff5733;
+            }
+            50% {
+                border-color: #33b5e5;
+            }
+            75% {
+                border-color: #4caf50;
+            }
+            100% {
+                border-color: #9c27b0;
+            }
+        }
+
+        /* Button Pulse Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Adding subtle animations to buttons */
+        .container button:nth-child(1) {
+            animation: pulse 2s infinite;
+        }
+
+        .container button:nth-child(2) {
+            animation: pulse 2.5s infinite;
+        }
+
+        .container button:nth-child(3) {
+            animation: pulse 3s infinite;
+        }
+
+        .container button:nth-child(4) {
+            animation: pulse 3.5s infinite;
+        }
+
+        .container button:nth-child(5) {
+            animation: pulse 4s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>My Application</h1>
+        <div class="navbar-buttons">
+            
+            <button><a href="{{ url_for('add_property') }}">Add Property</a></button>
+            <button><a href="{{ url_for('add_tenant') }}">Add Tenant</a></button>
+            <button><a href="{{ url_for('add_rent') }}">Add Rent</a></button>
+            <button><a href="{{ url_for('view_data') }}">View Data</a></button>
+            <button><a href="{{ url_for('login') }}">Logout</a></button>
+        </div><br><br>
+    </div>
+
+    <div class="container">
+        <button><a href="{{ url_for('add_property') }}">Add Property</a></button>
+        <button><a href="{{ url_for('add_tenant') }}">Add Tenant</a></button>
+        <button><a href="{{ url_for('add_rent') }}">Add Rent</a></button>
+        <button><a href="{{ url_for('view_data') }}">View Data</a></button>
+    </div>
+</body>
+</html>
